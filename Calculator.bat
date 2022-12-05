@@ -1,16 +1,21 @@
 @echo off
+set 1=%1
+if not defined 1 set 2=1
 set del=0
 cd > tmpfile1
 for /f "tokens=*" %%x in (tmpfile1) do (set curcd=%%x)
 del tmpfile1
 if defined var50 goto defined
+if not defined 2 (
+    set sum=%1% && goto after1
+)
 :start
 set sum=0
 set goto=0
 title Calculator
 cls
 echo Welcome to the calculator
-echo ==========V 4.3==========
+echo ==========V 4.4==========
 echo PI
 echo E
 echo Pow
@@ -22,78 +27,12 @@ echo ABS
 echo DUnits for Data units
 echo Conv for conversions
 set /p sum=Please enter your sum(Type ? for information)-
+:after1
+echo DUBUG: %sum%
 set sum=%sum: =%
 set sum=%sum:,=%
 call :replaceEqualSign in sum with +
 if %sum:~-1%==* set sum=%sum%2
-set sum=%sum:yourmum=9999999999999999999999999999999999999999999%
-if %sum%==forza echo i like forza & pause & goto start
-if %sum%==fortza echo thats not how you speel it :( & pause & goto start
-if %sum%==trans goto LNG
-if %sum%==translate goto LNG
-if %sum%==TRANS goto LNG
-if %sum%==TRANSLATE goto LNG
-if %sum%==LNG goto LNG
-if %sum%==Translate goto LNG
-if %sum%==Trans goto LNG
-if %sum%==Lng goto LNG
-if %sum%==lng goto LNG
-if %sum%==LNG goto LNG
-if %sum%==Lang goto LNG
-if %sum%==LANG goto LNG
-if %sum%==lang goto LNG
-if %sum%==avg goto AVG
-if %sum%==AVG goto AVG
-if %sum%==Avg goto AVG
-if %sum%==Average goto AVG
-if %sum%==AVERAGE goto AVG
-if %sum%==average goto AVG
-if %sum%==Square goto square
-if %sum%==SQUARE goto square
-if %sum%==square goto square
-if %sum%==exit exit
-if %sum%==Exit exit
-if %sum%==EXIT exit
-if %sum%==cmd cmd
-if %sum%==Cmd cmd
-if %sum%==CMD cmd
-if %sum%==cmdnew start cmd && exit
-if %sum%==Cmdnew start cmd && exit
-if %sum%==CmdNew start cmd && exit
-if %sum%==CMDNEW start cmd && exit
-if %sum%==cmd1 start cmd && exit
-if %sum%==Cmd1 start cmd && exit
-if %sum%==CMD1 start cmd && exit
-if %sum%==powershell -noprofile powershell -noprofile
-if %sum%==powershell -noprofile powershell -noprofile
-if %sum%==powershell -noprofile powershell -noprofile
-if %sum%==powershell -noprofile powershell -noprofile
-if %sum%==powershell -noprofilenew start powershell -noprofile && exit
-if %sum%==powershell -noprofilenew start powershell -noprofile && exit
-if %sum%==powershell -noprofilenew start powershell -noprofile && exit
-if %sum%==powershell -noprofileNew start powershell -noprofile && exit
-if %sum%==powershell -noprofileNew start powershell -noprofile && exit
-if %sum%==powershell -noprofileNEW start powershell -noprofile && exit
-if %sum%==powershell -noprofile1 start powershell -noprofile && exit
-if %sum%==powershell -noprofile1 start powershell -noprofile && exit
-if %sum%==powershell -noprofile1 start powershell -noprofile && exit
-if %sum%==POWWERSHELL1 start powershell -noprofile && exit
-if %sum%==ps powershell -noprofile
-if %sum%==Ps powershell -noprofile
-if %sum%==PS powershell -noprofile
-if %sum%==ps1 start powershell -noprofile && exit
-if %sum%==Ps1 start powershell -noprofile && exit
-if %sum%==PS1 start powershell -noprofile && exit
-if %sum%==Psnew start powershell -noprofile && exit
-if %sum%==psnew start powershell -noprofile && exit
-if %sum%==PsNew start powershell -noprofile && exit
-if %sum%==PSNEW start powershell -noprofile && exit
-set sum=%sum:x=*%
-echo.%sum%|findstr /C:"pi" >nul 2>&1 && set goto=1
-echo.%sum%|findstr /C:"e" >nul 2>&1 && set goto=1
-set sum=%sum:pi=3.14159265358979%
-set sum=%sum:e=2.71828182845905%
-if %goto%==1 goto calcsum1
 if %sum%==DUnits goto dunits
 if %sum%==dunits goto dunits
 if %sum%==Dunits goto dunits
@@ -144,6 +83,78 @@ if %sum%==SquareNumber goto square
 if %sum%==Squarenumber goto square
 if %sum%==squarenumber goto square
 if %sum%==squareNumber goto square
+set sum=%sum:yourmum=9999999999999999999999999999999999999999999%
+if %sum%==forza echo i like forza & pause & goto start
+if %sum%==fortza echo thats not how you speel it :( & pause & goto start
+if %sum%==trans goto LNG
+if %sum%==translate goto LNG
+if %sum%==TRANS goto LNG
+if %sum%==TRANSLATE goto LNG
+if %sum%==LNG goto LNG
+if %sum%==Translate goto LNG
+if %sum%==Trans goto LNG
+if %sum%==Lng goto LNG
+if %sum%==lng goto LNG
+if %sum%==LNG goto LNG
+if %sum%==Lang goto LNG
+if %sum%==LANG goto LNG
+if %sum%==lang goto LNG
+if %sum%==avg goto AVG
+if %sum%==AVG goto AVG
+if %sum%==Avg goto AVG
+if %sum%==Average goto AVG
+if %sum%==AVERAGE goto AVG
+if %sum%==average goto AVG
+if %sum%==Square goto square
+if %sum%==SQUARE goto square
+if %sum%==square goto square
+if %sum%==exit exit
+if %sum%==Exit exit
+if %sum%==EXIT exit
+if %sum%==cmd cmd
+if %sum%==Cmd cmd
+if %sum%==CMD cmd
+if %sum%==cmdnew start cmd && exit
+if %sum%==Cmdnew start cmd && exit
+if %sum%==CmdNew start cmd && exit
+if %sum%==CMDNEW start cmd && exit
+if %sum%==cmd1 start cmd && exit
+if %sum%==Cmd1 start cmd && exit
+if %sum%==CMD1 start cmd && exit
+if %sum%==powershell-noprofile powershell -noprofile
+if %sum%==powershell-noprofile powershell -noprofile
+if %sum%==powershell-noprofile powershell -noprofile
+if %sum%==powershell-noprofile powershell -noprofile
+if %sum%==powershell-noprofilenew start powershell -noprofile && exit
+if %sum%==powershell-noprofilenew start powershell -noprofile && exit
+if %sum%==powershell-noprofilenew start powershell -noprofile && exit
+if %sum%==powershell-noprofileNew start powershell -noprofile && exit
+if %sum%==powershell-noprofileNew start powershell -noprofile && exit
+if %sum%==powershell-noprofileNEW start powershell -noprofile && exit
+if %sum%==powershell-noprofile1 start powershell -noprofile && exit
+if %sum%==powershell-noprofile1 start powershell -noprofile && exit
+if %sum%==powershell-noprofile1 start powershell -noprofile && exit
+if %sum%==POWWERSHELL1 start powershell -noprofile && exit
+if %sum%==ps powershell -noprofile
+if %sum%==Ps powershell -noprofile
+if %sum%==PS powershell -noprofile
+if %sum%==ps1 start powershell -noprofile && exit
+if %sum%==Ps1 start powershell -noprofile && exit
+if %sum%==PS1 start powershell -noprofile && exit
+if %sum%==Psnew start powershell -noprofile && exit
+if %sum%==psnew start powershell -noprofile && exit
+if %sum%==PsNew start powershell -noprofile && exit
+if %sum%==PSNEW start powershell -noprofile && exit
+if %sum%==powershell start powershell && exit
+if %sum%==Powershell start powershell && exit
+if %sum%==PowerShell start powershell && exit
+if %sum%==POWERSHELL start powershell&& exit
+set sum=%sum:x=*%
+echo.%sum%|findstr /C:"pi" >nul 2>&1 && set goto=1
+echo.%sum%|findstr /C:"e" >nul 2>&1 && set goto=1
+set sum=%sum:pi=3.14159265358979%
+set sum=%sum:e=2.71828182845905%
+if %goto%==1 goto calcsum1
 if %sum%==? goto help
 
 :calcsum1
