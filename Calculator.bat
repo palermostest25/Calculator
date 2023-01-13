@@ -15,7 +15,7 @@ set goto=0
 title Calculator
 cls
 echo Welcome to the calculator
-echo ==========V 4.4==========
+echo ==========V 4.5==========
 echo PI
 echo E
 echo Pow
